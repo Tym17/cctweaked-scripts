@@ -24,12 +24,14 @@ local function bread(f, x, y, z)
                 turtle.suck(1)
                 turtle.refuel(1)
             end
+            sleep(SLEEP_TIME)
             tortie.turnLeft(ctx)
             tortie.turnLeft(ctx)
         end
         -- pick wheat
-        tortie.turnRight(ctx)
+        tortie.turnLeft(ctx)
         tortie.forward(ctx, 1)
+        sleep(SLEEP_TIME)
         not_enough_wheat = true
         bread_count = 0
         while not_enough_wheat do
@@ -50,17 +52,19 @@ local function bread(f, x, y, z)
         turtle.transferTo(2, bread_count)
         turtle.transferTo(3, bread_count)
         turtle.craft(bread_count)
+        sleep(SLEEP_TIME)
         -- deposit
         tortie.turnLeft(ctx)
         tortie.turnLeft(ctx)
         tortie.forward(ctx, 1)
-        tortie.turnRight(ctx)
+        tortie.turnLeft(ctx)
         tortie.forward(ctx, 2)
         turtle.drop(64)
         -- back to station
         tortie.turnLeft(ctx)
         tortie.turnLeft(ctx)
         tortie.forward(ctx, 2)
+        sleep(SLEEP_TIME)
         print('loop done')
         -- re-init
         if (ctx.x ~= startCtx.x) or (ctx.y ~= startCtx.y) or (ctx.z ~= startCtx.z) then

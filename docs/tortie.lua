@@ -19,6 +19,7 @@ local function up(ctx, count)
         else
             count = count - 1
             ctx.y = ctx.y + 1
+            sleep(1)
         end
     end
     return ret
@@ -33,6 +34,7 @@ local function down(ctx, count)
         else
             count = count - 1
             ctx.y = ctx.y - 1
+            sleep(1)
         end
     end
     return ret
@@ -45,6 +47,7 @@ local function forward(ctx, count)
             count = 0
             ret = false
         else
+            sleep(1)
             if (ctx.facing == 'n') then
                 ctx.z = ctx.z - 1
             elseif (ctx.facing == 's') then
@@ -66,6 +69,7 @@ local function back(ctx, count)
             count = 0
             ret = false
         else
+            sleep(1)
             if (ctx.facing == 'n') then
                 ctx.z = ctx.z - 1
             elseif (ctx.facing == 's') then
