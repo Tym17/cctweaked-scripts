@@ -3,7 +3,14 @@ tortie = require('tortie')
 FUEL_THRESHOLD = 64
 SLEEP_TIME = 5
 
--- 'n', 1, 2, 3
+-- Baker Turtle
+--   finds wheat chest, crafts bread, deposits bread, starts again
+--
+-- would be nice to have:
+--   - pathfinding pos chest to chest
+--
+-- args:
+--   'n', 1, 2, 3
 local function bread(f, x, y, z)
     ctx = tortie.buildCtx(f, x, y, z)
     startCtx = tortie.buildCtx(f, x, y, z)

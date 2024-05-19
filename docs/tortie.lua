@@ -1,3 +1,5 @@
+-- utils lib
+--   in-memory geolocalization
 
 local function buildCtx(facing, x, y, z)
     return {
@@ -45,11 +47,11 @@ local function forward(ctx, count)
         else
             if (ctx.facing == 'n') then
                 ctx.z = ctx.z - 1
-            else if (ctx.facing == 's') then
+            elseif (ctx.facing == 's') then
                 ctx.z = ctx.z + 1
-            else if (ctx.facing == 'w') then
+            elseif (ctx.facing == 'w') then
                 ctx.x = ctx.x - 1
-            else if (ctx.facing == 'e') then
+            elseif (ctx.facing == 'e') then
                 ctx.x = ctx.x + 1
             end
         end
@@ -66,11 +68,11 @@ local function back(ctx, count)
         else
             if (ctx.facing == 'n') then
                 ctx.z = ctx.z - 1
-            else if (ctx.facing == 's') then
+            elseif (ctx.facing == 's') then
                 ctx.z = ctx.z + 1
-            else if (ctx.facing == 'w') then
+            elseif (ctx.facing == 'w') then
                 ctx.x = ctx.x - 1
-            else if (ctx.facing == 'e') then
+            elseif (ctx.facing == 'e') then
                 ctx.x = ctx.x + 1
             end
         end
@@ -82,11 +84,11 @@ local function turnLeft(ctx)
     turtle.turnLeft()
     if (ctx.facing == 'n') then
         ctx.facing = 'e'
-    else if (ctx.facing == 'e') then
+    elseif (ctx.facing == 'e') then
         ctx.facing = 's'
-    else if (ctx.facing == 's' ) then
+    elseif (ctx.facing == 's' ) then
         ctx.facing = 'w'
-    else if (ctx.facing == 'w') then
+    elseif (ctx.facing == 'w') then
         ctx.facing = 'n'
     end
 end
@@ -95,11 +97,11 @@ local function turnRight(ctx)
     turtle.turnRight()
     if (ctx.facing == 'n') then
         ctx.facing = 'w'
-    else if (ctx.facing == 'e') then
+    elseif (ctx.facing == 'e') then
         ctx.facing = 'n'
-    else if (ctx.facing == 's' ) then
+    elseif (ctx.facing == 's' ) then
         ctx.facing = 'e'
-    else if (ctx.facing == 'w') then
+    elseif (ctx.facing == 'w') then
         ctx.facing = 's'
     end
 end
