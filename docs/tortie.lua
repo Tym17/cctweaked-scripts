@@ -109,5 +109,7 @@ return {
     up = up,
     down = down,
     forward = forward,
-    back = back
+    back = back,
+    turnRight = turnRight,
+    turnLeft = turnLeft
 }

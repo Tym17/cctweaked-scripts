@@ -5,8 +5,8 @@ SLEEP_TIME = 5
 
 -- 'n', 1, 2, 3
 local function bread(f, x, y, z)
-    ctx = tortie.startCtx(f, x, y, z)
-    startCtx = tortie.startCtx(f, x, y, z)
+    ctx = tortie.buildCtx(f, x, y, z)
+    startCtx = tortie.buildCtx(f, x, y, z)
     run = true
     while run do
         -- re-init
@@ -17,7 +17,6 @@ local function bread(f, x, y, z)
         while (ctx.facing ~= startCtx.facing) do
             tortie.turnLeft(ctx)
         end
-        turtle.select(1)
         -- refuel
         if turtle.getFuelLevel() < FUEL_THRESHOLD then
             tortie.turnLeft(ctx)
