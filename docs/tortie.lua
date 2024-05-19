@@ -1,10 +1,10 @@
 
 local function startTortieContext(facing, x, y, z)
     return {
-        facing,
-        x,
-        y,
-        z
+        facing = facing,
+        x = x,
+        y = y,
+        z = z
     }
 end
 
@@ -25,7 +25,7 @@ end
 local function down(ctx, count)
     local ret = true
     while (count > 0) do
-        if turtle.up() ~= true then
+        if turtle.down() ~= true then
             count = 0
             ret = false
         else
