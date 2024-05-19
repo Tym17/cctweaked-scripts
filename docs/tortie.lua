@@ -41,7 +41,7 @@ local function forward(ctx, count)
     while (count > 0) do
         if turtle.forward() ~= true then
             count = 0
-            ret false
+            ret = false
         else
             if (ctx.facing == 'n') then
                 ctx.z = ctx.z - 1
@@ -62,7 +62,7 @@ local function back(ctx, count)
     while (count > 0) do
         if turtle.back() ~= true then
             count = 0
-            ret false
+            ret = false
         else
             if (ctx.facing == 'n') then
                 ctx.z = ctx.z - 1
