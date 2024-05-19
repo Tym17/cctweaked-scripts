@@ -9,14 +9,6 @@ local function bread(f, x, y, z)
     startCtx = tortie.buildCtx(f, x, y, z)
     run = true
     while run do
-        -- re-init
-        if (ctx.x ~= startCtx.x) or (ctx.y ~= startCtx.y) or (ctx.z ~= startCtx.z) then
-            run = false
-            goto continue
-        end
-        while (ctx.facing ~= startCtx.facing) do
-            tortie.turnLeft(ctx)
-        end
         -- refuel
         if turtle.getFuelLevel() < FUEL_THRESHOLD then
             tortie.turnLeft(ctx)
@@ -63,7 +55,13 @@ local function bread(f, x, y, z)
         tortie.turnLeft(ctx)
         tortie.forward(ctx, 2)
         print('loop done')
-        ::continue::
+        -- re-init
+        if (ctx.x ~= startCtx.x) or (ctx.y ~= startCtx.y) or (ctx.z ~= startCtx.z) then
+            run = false
+        end
+        while (ctx.facing ~= startCtx.facing) do
+            tortie.turnLeft(ctx)
+        end
     end
     print('end bread')
 end
