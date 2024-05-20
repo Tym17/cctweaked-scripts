@@ -35,17 +35,20 @@ local function bread(f, x, y, z)
         not_enough_wheat = true
         bread_count = 0
         while not_enough_wheat do
-            turtle.suck(64)
-            details = turtle.getItemDetail()
-            wheat = details.count
-            leftover_wheat = details.count % 3
-            bread_count = (wheat - leftover_wheat) / 3
-            if (bread_count > 0) then
-                not_enough_wheat = false
-                turtle.drop(leftover_wheat)
+            if (turtle.suck(64)) then
+                details = turtle.getItemDetail()
+                wheat = details.count
+                leftover_wheat = details.count % 3
+                bread_count = (wheat - leftover_wheat) / 3
+                if (bread_count > 0) then
+                    not_enough_wheat = false
+                    turtle.drop(leftover_wheat)
+                else
+                    turtle.drop(64)
+                    sleep(SLEEP_TIME * 10)
+                end
             else
-                turtle.drop(64)
-                sleep(SLEEP_TIME)
+                sleep(SLEEP_TIME * 10)
             end
         end
         -- bread
